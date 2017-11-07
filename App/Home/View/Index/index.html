@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="chijiao">
+	<meta name="description" content="<{:$meta_des}>">
+	<meta name="keywords" content="<{:$meta_kw}>">
+	<include file="Common:head" />
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.css"/>
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css"/>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+	<title><{$meta_title}></title>
+	<style>
+		body { padding-top: 50px; }
+		@media screen and (max-width: 768px) {
+		 body { padding-top: 100px; }
+		}
+	</style>
+</head>
+<!-- <body class="easyui-layout" style="text-align:center"> -->
+<body class="">
+
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<!--nav-->
+				<include file="Common:nav_header" />
+				<!--content begin-->
+				<!--top ads-->
+				<img src="__STATIC__/img/ads.png" />
+				
+				<!--main content-->
+				<div class="row clearfix">
+					<!--left cats-->
+					<include file="Common:left_CATs" />
+
+					<!--centel content-->
+					<div class="col-md-7 column">
+						<!--slide content-->
+						<include file="Common:center_slide" />
+
+						<!--list kind 1 content-->
+						<include file="Common:center_list1" />
+
+						<!--list kind 2 content-->
+						<include file="Common:center_list2" />
+
+					</div>
+
+					<!--right content-->
+					<include file="Common:right_content" />
+
+				<!--end main content-->
+				</div>
+
+				<!--footer-->
+				<include file="Common:footer" />
+				
+			</div>
+		</div>
+	</div>
+
+
+
+	<!--
+	<div style="margin:0 auto">
+		<nav style="margin:0 auto;text-align:center">------------------------------------------------------------------------------------------------------------------------------------this is nav------------------------------------------------------------------------------------------------------------------------------------</nav>
+
+		<!-- head content --
+		<div style="width:800px;height:620px;margin:0 auto">
+			<div style="width:600px;float: left;margin:0 auto">
+				<img style="width:600px;margin:0 auto" src="https://pbs.twimg.com/media/DIgeOXYVYAEoy0-.jpg" />
+			</div>
+			<div style="width:150px;float: left;margin:0 auto">
+				<img style="width:120px;height:120px;margin:5px auto" src="http://img.usmagazine.com/480-width/the-weeknd-selena-gomez-red-carpet-harpers-bazaar-1-d11283f9-4081-438b-bb3b-f328a5aa6cc1.jpg" />
+				<img style="width:120px;height:120px;margin:5px auto" src="http://www.nairapark.com/../../images/featuredads/73-kobo-bulk-sms-at-angel-bulk-sms-com.jpg" width="300" height="600" alt="Buy sms unit for as low as 73 kobo at angelbulksms.com" title="Buy sms unit for as low as 73 kobo at angelbulksms.com" border="0" />
+				<img style="width:120px;height:120px;margin:5px auto" src="http://img.usmagazine.com/480-width/the-weeknd-selena-gomez-red-carpet-harpers-bazaar-1-d11283f9-4081-438b-bb3b-f328a5aa6cc1.jpg" />
+				<img style="width:120px;height:120px;margin:5px auto" src="http://www.nairapark.com/../../images/featuredads/73-kobo-bulk-sms-at-angel-bulk-sms-com.jpg" width="300" height="600" alt="Buy sms unit for as low as 73 kobo at angelbulksms.com" title="Buy sms unit for as low as 73 kobo at angelbulksms.com" border="0" />
+			</div>
+		</div>
+
+		<!-- post list --
+		<div style="width:800px;margin:0 auto">
+			<h2>Top stories</h2>
+			<foreach name="post_list" key="title1" item="post">
+				<div style="height:150px">
+				<!-- <div> --
+					<div style="width:150px;float: left">
+						<img style="width:140px;height:120px" src="<{$post['thumb']}>" alt="Post img"/>
+					</div>
+
+					<div style="width:600px;margin:0 auto;float: left;">
+						<h3><a href="<{$post['url']}>"><{$post["title"]}></a></h3>
+						<div style="height:42px;overflow:hidden;text-overflow:ellipsis"><{$post["description"]}></div>
+					</div>
+					<div><{$post['catid']}></div>
+					<!-- <time><{$post['addtime']|date="Y-m-d \T H:i:s \Z",###}></time> --
+					<time><{:date("Y-m-d \T H:i:s \Z", $post['addtime'])}></time>
+				</div>
+				<hr>
+			</foreach>
+			<br><br>
+		</div>
+	</div>
+	-->
+
+</body>
+
+</html>
