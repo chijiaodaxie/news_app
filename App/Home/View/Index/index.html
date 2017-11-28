@@ -12,9 +12,64 @@
 
 	<title><{$meta_title}></title>
 	<style>
-		body { padding-top: 50px; }
+		body { 
+			padding-top: 70px;
+		}
+		.center-content{
+			padding-left: 150px;
+		}
+		div.left-CATs { 
+			position:fixed;
+			z-index:9999;
+		}
+		.list-group-item {
+			border: 0px solid rgba(0, 0, 0, 0.125);
+		}
+		.thumbnail{ overflow: hidden; }
 		@media screen and (max-width: 768px) {
-		 body { padding-top: 100px; }
+			body { padding-top: 100px; }
+		}
+		
+
+		@media screen and (max-width: 991px) {
+			div.right-content { display:none;}
+		}
+		@media (min-width: 500px) {
+		  .thumbnail_maincontent {
+		    -ms-flex: 0 0 auto;
+		        flex: 0 0 auto;
+		    width: 50%;
+		    display: inline;
+		    float:left;
+		    max-width: none;
+		  }
+		}
+		@media (min-width: 750px) {
+		  .thumbnail_maincontent {
+		    -ms-flex: 0 0 auto;
+		        flex: 0 0 auto;
+		    width: 33.333333333%;
+		    display: inline;
+		    float:left;
+		    max-width: none;
+		  }
+		}
+		
+		.center_list1 a:link{
+			color:#000000;		 /*未被访问的链接 */
+		}
+		.center_list1 a:visited{
+			color:#0000FF;		/* 已被访问的链接 */
+		}
+		.center_list1 a:hover{
+			color:#0000FF;		/* 鼠标指针移动到链接上 */
+		}
+		.center_list1 a:active{
+			color:#0000FF;		/* 正在被点击的链接 */
+		}
+		.center_list1 {
+			margin-bottom:7px;
+			margin-top:7px;
 		}
 	</style>
 </head>
@@ -28,7 +83,7 @@
 				<include file="Common:nav_header" />
 				<!--content begin-->
 				<!--top ads-->
-				<img src="__STATIC__/img/ads.png" />
+				<!-- <img src="__STATIC__/img/ads.png" /> -->
 				
 				<!--main content-->
 				<div class="row clearfix">
@@ -36,7 +91,7 @@
 					<include file="Common:left_CATs" />
 
 					<!--centel content-->
-					<div class="col-md-7 column">
+					<div class="col-md-9 column center-content">
 						<!--slide content-->
 						<include file="Common:center_slide" />
 

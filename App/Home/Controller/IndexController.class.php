@@ -4,12 +4,15 @@ use Home\Controller\CommonController;
 class IndexController extends CommonController {
 	public function index($limit=10){
 		// $this->redirect('Admin/Index/index');
-
+		// select posts
 		$post_list = M("fr_article");
 		$where = " `id`>300 and thumb is not null and thumb <>''";
-		// $where = " `id`<100";
 		$posts = $post_list->field(array('catid', 'title', 'description', "keywords", "thumb", "url", 'addtime'))->where( $where )
 			->limit($limit)->select();
+		// select cats
+		$post_list = M("fr_category");
+		$cats = $post_list->field(array('catname'))->select();
+			
 		// $this->show('<h1>News home</h1>');
 		// $this->redirect('Post/show_post');
 
@@ -22,10 +25,26 @@ class IndexController extends CommonController {
 		$this->assign('meta_kw', $meta_kw);
 
 		$this->assign('post_list', $posts);
+		$this->assign('cat_list', $cats);
+		$this->assign('limit', $limit);
 		// dump( $posts );
 		// $this->assign('content', $content);
 		$this->display('index');
 	}
 
+	public function index_more($limit='10,10'){
+		// $this->redirect('Admin/Index/index');
 
+		$post_list = M("fr_article");
+		$where = " `id`>300 and thumb is not null and thumb <>''";
+		// $where = " `id`<100";
+		$posts = $post_list->field(array('catid', 'title', 'description', "keywords", "thumb", "url", 'addtime'))->where( $where )
+			->limit($limit)->select();
+
+		$data = $posts;
+		// dump( $posts );
+		// $this->assign('content', $content);
+		// $this->display('index');
+		$this->ajaxReturn( $data );
+	}
 }

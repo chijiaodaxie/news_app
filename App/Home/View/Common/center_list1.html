@@ -2,10 +2,10 @@
 <h2>Top Stories</h2>
 <!-- <div class="top-stories"> -->
 <foreach name="post_list" key="title1" item="post">
-	<div class="media thumbnail">
+	<div class="media thumbnail center_list1">
 		<a href="<{$post['url']}>" class="pull-left1">
 			<div class="pull-left" style="width:150px">
-				<img style="width:140px"  src="<{$post['thumb']}>" class="media-object" alt='<{$post["title"]}>' />
+				<img style="width:140px" onerror="this.onerror='';this.style='display:none'" src="<{$post['thumb']}>" class="media-object" /><!-- alt='<{$post["title"]}>' /> -->
 			</div>
 		</a>
 		<div class="media-body">
@@ -18,12 +18,34 @@
 			<info>
 				<a href="#" class="pull-left1"><span class="label label-default">开发者<{$post['catid']}></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#" class="pull-left1"><media><{$post['catid']}>NY-times</media></a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<time><{:date("Y-m-d", $post['addtime'])}></time>
+				<time><{$post['addtime']}></time>
 			</info>
 		</div>
 		
 	</div>
 </foreach>
+	<div class="center_list1_template" style="display:none">
+		<div class="media thumbnail center_list1">
+	        <a href="$url$" class="pull-left1">
+	            <div class="pull-left" style="width:150px">
+	                <img style="width:140px" onerror_tplt="this.onerror='';this.style='display:none'" src="$thumb$" class="media-object" />
+	            </div>
+	        </a>
+	        <div class="media-body">
+	            <a href="$url$" class="pull-left1">
+	                <h4 class="media-heading title">
+	                    <strong>$title$</strong>
+	                </h4>
+	            </a>
+	            <small>$description$</small><br />
+	            <info>
+	                <a href="#" class="pull-left1"><span class="label label-default">开发者$catid$</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	                <a href="#" class="pull-left1"><media>$catid$NY-times</media></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	                <time>$addtime$</time>
+	            </info>
+	        </div>
+	        
+	    </div>
+    </div>
 	
-	
-<!-- </div> -->
+<!-- </div> 

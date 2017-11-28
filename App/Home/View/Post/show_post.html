@@ -1,26 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="author" content="erex">
-<title><{:$meta_title}></title>
-<style>
-    .article-content img {
-    display:block;
-    margin:auto
-    }
-</style>
-<include file="Common:head" />
+    <meta charset="utf-8">
+    <meta name="author" content="erex">
+    <title><{:$meta_title}></title>
+    <include file="Common:head" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <style>
+        body { padding-top: 50px; }
+        @media screen and (max-width: 768px) {
+            body { padding-top: 100px; }
+        }
+        div.left-CATs { 
+            position:fixed;
+            z-index:9999;
+        }
+        .article-content img {
+            display:block;
+            margin:auto
+        }
+    </style>
 </head>
 <!-- <body class="easyui-layout" style="text-align:center"> -->
 <body class="">
-<div style="margin:0 auto">
-    <h1 style="text-align:center"><{:$title}></h1>
-    <div style="width:800px;height:40px;margin:0 auto;text-align:center">google adsgoogle adsgoogle adsgoogle adsgoogle ads</div>
-    <div class="article-content" style="width:800px;margin:0 auto">
-        <{:$content}>
-    </div>
-</div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <!--nav-->
+                <include file="Common:nav_header" />
 
+                <!--bread-->
+                <span><a>World</a> / <a>2017-11-27</a></span>
+                
+                <!--main content-->
+                <div class="row clearfix">
+                    <!--left cats-->
+                    <include file="Common:left_CATs" />
+
+                    <!-- main content -->
+                    <div class="col-md-9 column center-content" ><!-- style="margin:0 auto"> -->
+                        <h1 style="text-align:center"><{:$title}></h1>
+                        <!--top ads-->
+                        <img src="__STATIC__/img/ads.png" style="display:block;margin:auto;"/>
+                        <!--article info-->
+                        <!-- <div style="width:800px;height:40px;margin:0 auto;text-align:center">Author Time Source Cat</div>
+                        <div class="article-content" style="width:800px;margin:0 auto">
+                            <{:$content}>
+                        </div> -->
+                        <div style="margin:0 auto;text-align:center">Author Time Source Cat</div>
+                        <div class="article-content" style="margin:0 auto">
+                            <{:$content}>
+                        </div>
+                    </div>
+                    <!--right content-->
+                    <include file="Common:right_content" />
+
+                </div>
+
+                <!--footer-->
+                <include file="Common:footer" />
+            </div>
+        </div>
+    </div>
 </body>
 </html>
