@@ -1,11 +1,15 @@
 <!-- <div class="col-md-2 column">
 </div> -->
-<div class="col-md-1 column left-CATs" style="width:150px">
-	<div class="list-unstyled">
-		<foreach name="cat_list" key="title1" item="post">
+<div class="col-md-1 column left-CATs" style="width:150px;">
+	<div class="list-unstyled" >
+		<foreach name="cat_list" key="title1" item="cat">
+			<if condition="$cat['id'] eq $cat_id ">
 			<!-- <li> -->
-				<a href="http://www.baidu.com" class="list-group-item"><{$post["catname"]}><!-- <span class="badge">1400</span> --></a>
+				<a href="<{$cat['slug']}>" class="list-group-item active"><{$cat["catname"]}><!-- <span class="badge">1400</span> --></a>
 			<!-- </li> -->
+			<else />
+				<a href="<{$cat['slug']}>" class="list-group-item" style="background-color:#f7f7f1;"><{$cat["catname"]}><!-- <span class="badge">1400</span> --></a>
+			</if>
 		</foreach>
 
 	</div>

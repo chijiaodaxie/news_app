@@ -9,10 +9,11 @@ $(document).ready(function(){
             if(stop==true){
                 // alert( num );
                 stop=false;
-                canshu="?limit="+num+",10";
+                canshu="?limit="+num+",10&cat=" + $("#cat_id").val();
                 //加载提示信息
                 $(".center-content").append("<li class='ajaxtips'><div style='font-size:2em'>Loding.....</div></li>");
-                $.get(".//index.php/home/index/index_more"+canshu,function(data){
+                $.get("/index.php/home/index/index_more"+canshu,function(data){
+                // $.get(".//index.php/home/index/index_more"+canshu,function(data){
                     $(".ajaxtips").hide();
                     
                     var htmlList = '';
@@ -42,5 +43,5 @@ $(document).ready(function(){
     };
 
     // Activate the slide
-    $("span.glyphicon-chevron-right").click();
+    setTimeout('$("span.glyphicon-chevron-right").click()', 3);
 });

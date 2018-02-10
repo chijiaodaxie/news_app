@@ -1,16 +1,11 @@
 <!-- <div class="col-md-3 column right-content"> -->
 <div class="col-md-3 column right-content">
-	<a class="media" href="#">
-		<img class="img-thumbnail" alt="140x140" src="__STATIC__/img/news_b1.jpg" />
-		<span><strong>This Is The Title Of Right Side, Show Me The Other Line</strong> </span>
-		<br/><br/>
-	</a>
-	<a class="media" href="#">
-		<img class="img-thumbnail" alt="140x140" src="__STATIC__/img/news_b2.jpg" />
-		<span><strong>This Is The Title Of Right Side, Show Me The Other Line</strong> </span>
-		<br/><br/>
-	</a>
-
+	<foreach name="newest_posts" key="title1" item="n_post">
+		<a class="media thumbnail" href="<{$n_post['url']}>">
+			<img class="img-thumbnail" onerror="this.onerror='';this.style='display:none'" alt="" src="<{$n_post['thumb']}>" />
+			<span><strong><{$n_post['title']}></strong> </span>
+		</a>
+	</foreach>
 
 
 	<div class="alert alert-dismissable alert-success">
@@ -19,12 +14,6 @@
 			注意!
 		</h4> <strong>Warning!</strong> Best check yo self, you're not looking too good. <a href="#" class="alert-link">alert link</a>
 	</div>
-
-
-
-
-	<img class="img-thumbnail" alt="140x140" src="__STATIC__/img/alipay.jpg" />
-
 
 
 

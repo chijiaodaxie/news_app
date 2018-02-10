@@ -14,10 +14,10 @@
 					<strong><{$post["title"]}></strong>
 				</h4>
 			</a>
-			<small><{$post["description"]}></small><br />
+			<small><{$post["snippet"]}></small><br />
 			<info>
-				<a href="#" class="pull-left1"><span class="label label-default">开发者<{$post['catid']}></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#" class="pull-left1"><media><{$post['catid']}>NY-times</media></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" class="pull-left1"><span class="label label-default">User:<{$post['tweet_user']}></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" class="pull-left1"><media><{$post['brand']}></media></a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<time><{$post['addtime']}></time>
 			</info>
 		</div>
@@ -37,11 +37,11 @@
 	                    <strong>$title$</strong>
 	                </h4>
 	            </a>
-	            <small>$description$</small><br />
+	            <small>$snippet$</small><br />
 	            <info>
-	                <a href="#" class="pull-left1"><span class="label label-default">开发者$catid$</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-	                <a href="#" class="pull-left1"><media>$catid$NY-times</media></a>&nbsp;&nbsp;&nbsp;&nbsp;
-	                <time>$addtime$</time>
+	                <a href="#" class="pull-left1"><span class="label label-default">User:$tweet_user$</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#" class="pull-left1"><media>$brand$</media></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<time>$addtime$</time>
 	            </info>
 	        </div>
 	        

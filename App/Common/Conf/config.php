@@ -22,7 +22,7 @@ return array(
 	
 	/* URL配置 */
 	'URL_CASE_INSENSITIVE'  => true,         // 默认false 表示URL区分大小写 true则表示不区分大小写
-	'URL_MODEL'             => 3,            // URL模式
+	'URL_MODEL'             => 2,            // URL模式
 	'URL_PATHINFO_DEPR'     => '/',          // PATHINFO URL分割符
 	'URL_ROUTER_ON'         => false,        // 是否开启URL路由
 	'URL_ROUTE_RULES'       => array(),      // 默认路由规则 针对模块

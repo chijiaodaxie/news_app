@@ -6,12 +6,17 @@ class IndexController extends CommonController {
 		// $this->redirect('Admin/Index/index');
 		// select posts
 		$post_list = M("fr_article");
-		$where = " `id`>300 and thumb is not null and thumb <>''";
-		$posts = $post_list->field(array('catid', 'title', 'description', "keywords", "thumb", "url", 'addtime'))->where( $where )
+		$where = " thumb is not null and thumb <>''";
+		$post_fields = array('catid', 'title', 'snippet', "keywords", "thumb", "url", 'brand', 'tweet_user', 'addtime');
+		$posts = $post_list->field( $post_fields )->where( $where )->order("retweet_count desc")
 			->limit($limit)->select();
 		// select cats
-		$post_list = M("fr_category");
-		$cats = $post_list->field(array('catname'))->select();
+
+		$newest_posts = $post_list->field( $post_fields )->where( $where )
+			->order("id desc")->limit($limit)->select();
+
+		$cat_list = M("fr_category");
+		$cats = $cat_list->field(array('catname', 'id', 'slug'))->select();
 			
 		// $this->show('<h1>News home</h1>');
 		// $this->redirect('Post/show_post');
@@ -25,6 +30,7 @@ class IndexController extends CommonController {
 		$this->assign('meta_kw', $meta_kw);
 
 		$this->assign('post_list', $posts);
+		$this->assign('newest_posts', $newest_posts);
 		$this->assign('cat_list', $cats);
 		$this->assign('limit', $limit);
 		// dump( $posts );
@@ -32,14 +38,22 @@ class IndexController extends CommonController {
 		$this->display('index');
 	}
 
-	public function index_more($limit='10,10'){
+	public function index_more($limit='10,10',$cat="-1"){
 		// $this->redirect('Admin/Index/index');
 
 		$post_list = M("fr_article");
-		$where = " `id`>300 and thumb is not null and thumb <>''";
+		$where = array();
+		//cat
+		if("-1" != $cat){
+			$cat_info = M("fr_category")->field(array("cat_calc_relat"))->where("id=".$cat)->select();
+			$cat_name = $cat_info[0]["cat_calc_relat"];
+			$where["cats"] = array('like', "%".$cat_name."%");
+		}
+		// dump($where);
+
 		// $where = " `id`<100";
-		$posts = $post_list->field(array('catid', 'title', 'description', "keywords", "thumb", "url", 'addtime'))->where( $where )
-			->limit($limit)->select();
+		$posts = $post_list->field(array('catid', 'title', 'snippet', "keywords", "thumb", "url", 'brand', 'tweet_user', 'addtime'))->where( $where )
+			->order("retweet_count desc")->limit($limit)->select();
 
 		$data = $posts;
 		// dump( $posts );

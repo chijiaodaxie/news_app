@@ -1,80 +1,16 @@
 <div class="row">
-	<div class="col-md-4 thumbnail_maincontent" >
-		<div class="thumbnail" style="height:250px">
-			<img alt="300x200" src="__STATIC__/img/news_b2.jpg" />
-			<div class="caption">
-				<h3>
-					Thumbnail label
-				</h3>
-				<p>
-					Cras justo odiopibuit. justo  idf asdf asdf asdf asdf asdf asdf asdfasdfasdf asdf asdf adfsd e justo  idf asdf asdf asdf asdf asdf asdf asdfasdfasdf asdf asdf adfsd e
-				</p>
+	<foreach name="related_posts" key="title1" item="post">
+		<div class="col-md-4 thumbnail_maincontent" >
+			<div class="thumbnail" style="height:187px">
+				<a href="<{$post['url']}>">
+					<img src="<{$post['thumb']}>" style="height:130px" onerror="this.onerror='';this.src='__STATIC__/img/upload.png'" />
+					<div class="caption">
+							<span><strong>
+								<{$post['title']}>
+							</strong></span>
+					</div>
+				</a>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-4 thumbnail_maincontent">
-		<div class="thumbnail" style="height:250px">
-			<img alt="300x200" src="__STATIC__/img/news_b3.jpg" />
-			<div class="caption">
-				<h3>
-					Thumbnail label
-				</h3>
-				<p>
-					Cras justo odioid ds fasdf das fda d adsf adsfsfelit.
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4 thumbnail_maincontent">
-		<div class="thumbnail" style="height:250px">
-			<img alt="300x200" src="__STATIC__/img/news_b2.jpg" />
-			<div class="caption">
-				<h3>
-					Thumbnail label
-				</h3>
-				<p>
-					Cras justo  idf asdf asdf asdf asdf asdf asdf asdfasdfasdf asdf asdf adfsd elit.
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4 thumbnail_maincontent">
-		<div class="thumbnail" style="height:250px">
-			<img alt="300x200" src="__STATIC__/img/news_b1.jpg" />
-			<div class="caption">
-				<h3>
-					Thumbnail label
-				</h3>
-				<p>
-					Cras justod elit.
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4 thumbnail_maincontent">
-		<div class="thumbnail" style="height:250px">
-			<img alt="300x200" src="__STATIC__/img/news_b1.jpg" />
-			<div class="caption">
-				<h3>
-					Thumbnail label
-				</h3>
-				<p>
-					Cras justo odio, dapit.
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4 thumbnail_maincontent">
-		<div class="thumbnail" style="height:250px">
-			<img alt="300x200" src="__STATIC__/img/news_b3.jpg" />
-			<div class="caption">
-				<h3>
-					Thumbnail label
-				</h3>
-				<p>
-					Cras justo odioit.
-				</p>
-			</div>
-		</div>
-	</div>
+	</foreach>
 </div>

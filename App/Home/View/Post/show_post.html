@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="author" content="erex">
-    <title><{:$meta_title}></title>
+    <title><{$post["title"]}> | Super News</title>
     <include file="Common:head" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <style>
-        body { padding-top: 50px; }
+        .article-div-hold{
+            background-color:white;
+            border:1px solid #ddd;
+            border-radius: 14px;
+            box-shadow: 0 100px 200px rgba(0, 0, 0, .075);
+            
+        }
+        .article-content{
+            margin:5px 15px 50px 15px; /*t,r,b,l*/
+            text-align:justify;
+            overflow:hidden;
+        }
+        .article-content img {
+            display:block;
+            margin:auto;
+            width: 90%;
+            height: 90%;
+        }
+        .article-content {
+            font-family: Georgia, Times New Roman, serif;
+            word-wrap: break-word;
+            line-height: 30px;
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 1.0em;
+        }
+        body { 
+            padding-top: 50px;
+            background-color:#f7f7f7; }
+        .center-content{
+            padding-left: 160px;
+        }
         @media screen and (max-width: 768px) {
             body { padding-top: 100px; }
         }
@@ -17,11 +48,38 @@
             position:fixed;
             z-index:9999;
         }
-        .article-content img {
-            display:block;
-            margin:auto
+        @media screen and (max-width: 991px) {
+            div.right-content { display:none;}
+        }
+        .thumbnail{ overflow: hidden; }
+        @media (min-width: 500px) {
+          .thumbnail_maincontent {
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+            width: 50%;
+            display: inline;
+            float:left;
+            max-width: none;
+          }
+        }
+        @media (min-width: 750px) {
+          .thumbnail_maincontent {
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+            width: 33.333333333%;
+            display: inline;
+            float:left;
+            max-width: none;
+          }
         }
     </style>
+    <script>
+    $(document).ready(function(){
+        $(".article-div-hold img").error(function(){
+            $(this).hide();
+        });
+    });
+    </script>
 </head>
 <!-- <body class="easyui-layout" style="text-align:center"> -->
 <body class="">
@@ -32,7 +90,7 @@
                 <include file="Common:nav_header" />
 
                 <!--bread-->
-                <span><a>World</a> / <a>2017-11-27</a></span>
+                <span><a>World</a> / <a><{$post['addtime']}></a></span>
                 
                 <!--main content-->
                 <div class="row clearfix">
@@ -41,18 +99,23 @@
 
                     <!-- main content -->
                     <div class="col-md-9 column center-content" ><!-- style="margin:0 auto"> -->
-                        <h1 style="text-align:center"><{:$title}></h1>
+                        <h1 style="text-align:center"><strong><{$post["title"]}></strong></h1>
                         <!--top ads-->
-                        <img src="__STATIC__/img/ads.png" style="display:block;margin:auto;"/>
+                        <!-- <img src="__STATIC__/img/ads.png" style="display:block;margin:auto;"/> -->
+                        
                         <!--article info-->
                         <!-- <div style="width:800px;height:40px;margin:0 auto;text-align:center">Author Time Source Cat</div>
                         <div class="article-content" style="width:800px;margin:0 auto">
                             <{:$content}>
                         </div> -->
-                        <div style="margin:0 auto;text-align:center">Author Time Source Cat</div>
-                        <div class="article-content" style="margin:0 auto">
-                            <{:$content}>
+                        <div style="margin:0 auto;">Source : <{$post['brand']}></div>
+                        <div class="article-div-hold">
+                            <div class="article-content" ><!-- style="margin:0 auto"> -->
+                                <{:$content}>
+                            </div>
                         </div>
+                        <h3>Related News</h3>
+                        <include file="Common:center_list2" />
                     </div>
                     <!--right content-->
                     <include file="Common:right_content" />
@@ -65,4 +128,5 @@
         </div>
     </div>
 </body>
+
 </html>
